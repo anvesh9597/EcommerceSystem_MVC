@@ -1,0 +1,36 @@
+﻿@model EcommerceMVC.Models.ShippingViewModel
+
+
+@{ Layout = "~/Views/Shared/AdminLayout.cshtml"; }
+
+<meta name="viewport" content="width=device-width" />
+<title>ProductIndex</title>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
+<link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        <div class="row mt-5 border border-light">
+            <div class="mt-5 col-md-6 mx-auto border-secondary bg-light">
+                <div class="card mb-3 mx-auto">
+                    <div class="card-header bg-dark text-white">Your Details..</div>
+                    <div class="card-body ">
+                        <div class="mt-3 form-group form-row">
+                            @Html.LabelFor(temp => temp.ShippingStatus, "Shipping Status:", new { @class = "col-form-label col-lg-3 " })
+                            @Html.TextBoxFor(temp => temp.ShippingStatus, new { @class = "form-control col-lg-9", @readonly = "readonly" })
+                            
+
+
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    }
+</div>

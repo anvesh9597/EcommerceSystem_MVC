@@ -1,0 +1,75 @@
+﻿@model EcommerceMVC.Models.ProductViewModel
+
+@{ Layout = "~/Views/Shared/AdminLayout.cshtml"; }
+
+
+<meta name="viewport" content="width=device-width" />
+<title>Add</title>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Add Product</a>
+    </nav>
+
+    @using (Html.BeginForm("Add", "Product", FormMethod.Post))
+    {
+<div class="row mt-5 border border-light">
+    <div class="mt-5 col-md-6 mx-auto border-secondary bg-light">
+        <div class="card mb-3 mx-auto">
+            <div class="card-header bg-dark text-white">Fill the details to add a product..</div>
+            <div class="card-body ">
+                <div class="mt-3 form-group form-row">
+                    @Html.LabelFor(temp => temp.ProductName, "Product Name:", new { @class = "col-form-label col-lg-3 " })
+                    @Html.TextBoxFor(temp => temp.ProductName, new { @class = "form-control col-lg-9" })
+                    <div class="col-lg-3 text-nowrap col-form-label">
+                        @Html.ValidationMessageFor(temp => temp.ProductName)
+                    </div>
+                </div>
+                <div class="mt-4 form-group form-row">
+                    @Html.LabelFor(temp => temp.ProductNumber, "Product Number:", new { @class = "col-form-label col-lg-3 " })
+                    @Html.TextBoxFor(temp => temp.ProductNumber, new { @class = "form-control col-lg-9" })
+                    <div class="col-lg-3 text-nowrap col-form-label">
+                        @Html.ValidationMessageFor(temp => temp.ProductNumber)
+                    </div>
+                </div>
+                <div class="mt-4 form-group form-row">
+                    @Html.LabelFor(temp => temp.ProductDescription, "Product Description :", new { @class = "col-form-label col-lg-3 " })
+                    @Html.TextBoxFor(temp => temp.ProductDescription, new { @class = "form-control col-lg-9" })
+                    <div class="col-lg-3 text-nowrap col-form-label">
+                        @Html.ValidationMessageFor(temp => temp.ProductDescription)
+                    </div>
+                </div>
+                <div class="mt-4 form-group form-row">
+                    @Html.LabelFor(temp => temp.PriceOfProduct, "Price :", new { @class = "col-form-label col-lg-3 " })
+                    @Html.PasswordFor(temp => temp.PriceOfProduct, new { @class = "form-control col-lg-9" })
+                    <div class="col-lg-3 text-nowrap col-form-label">
+                        @Html.ValidationMessageFor(temp => temp.PriceOfProduct)
+                    </div>
+                </div>
+
+                <div class="mt-4 form-group form-row">
+                    @Html.LabelFor(temp => temp.Stock, "Stock :", new { @class = "col-form-label col-lg-3 " })
+                    @Html.PasswordFor(temp => temp.Stock, new { @class = "form-control col-lg-9" })
+                    <div class="col-lg-3 text-nowrap col-form-label">
+                        @Html.ValidationMessageFor(temp => temp.Stock)
+                    </div>
+                </div>
+                <div class="mt-5 border-top text-right pt-2">
+                    <a class="btn btn-danger text-white" name="button" value="edit" href="@Url.Action("ProductIndex","Product")">Cancel</a>
+                    <button class="btn btn-success text-white" name="button" value="add"> Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>}
+
+</div>
+
